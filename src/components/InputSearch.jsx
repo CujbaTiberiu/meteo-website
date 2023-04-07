@@ -2,7 +2,8 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ListGroup, Dropdown } from "react-bootstrap";
-import { Link } from "react-router-dom/dist";
+import { Link } from "react-router-dom";
+import HomeCard from "./HomeCard";
 
 const API_KEY = "1d0308598175f64523b3e3e941bf225f";
 
@@ -17,7 +18,7 @@ const InputSearch = function () {
   const [suggestions, setSuggestions] = useState([]);
   const [error, setError] = useState(null);
 
-  const fetchSuggestions = async () => {
+  const DropSugg = async () => {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`
@@ -31,7 +32,7 @@ const InputSearch = function () {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    await fetchSuggestions();
+    await DropSugg();
   };
 
   const onSelectCity = async (cityName, country) => {
@@ -41,7 +42,6 @@ const InputSearch = function () {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
-        //`https://api.openweathermap.org/data/2.5/weather?q=${params}&appid=${API_KEY}`
       );
       const data = await response.json();
       setWeatherData([data]);
@@ -108,6 +108,9 @@ const InputSearch = function () {
           ))}
         </ListGroup>
       )}
+      <div>
+        <HomeCard city={city} />
+      </div>
     </>
   );
 };

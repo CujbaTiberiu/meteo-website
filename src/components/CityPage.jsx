@@ -1,8 +1,9 @@
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import CityCard from "./CityCard";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ErrorBoundary from "./ErrorBoundaries";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CityPage() {
   const API_KEY = "1d0308598175f64523b3e3e941bf225f";
@@ -31,7 +32,16 @@ function CityPage() {
     getCityDetails();
   }, []);
 
-  return <Container>{city !== null && <CityCard city={city} />}</Container>;
+  return (
+    <Container>
+      {city !== null && <CityCard city={city} />}
+      <Link to="/" className="nav-link">
+        <Button className="bg-white text-primary px-4 border border-2 border-primary my-5">
+          Go Back
+        </Button>
+      </Link>
+    </Container>
+  );
 }
 
 export default CityPage;

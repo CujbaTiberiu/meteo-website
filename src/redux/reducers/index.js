@@ -1,27 +1,27 @@
 const initialState = {
-    favourite: {
+    favs: {
         content: [],
     },
 };
 
 const mainReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_TO_FAV":
-            if (state.favourite.content.includes(action.payload)) {
-                return state; // non fare nulla se il payload è già presente nell'array
+        case "ADD_FAV":
+            if (state.favs.content.includes(action.payload)) {
+                return state;
             }
             return {
                 ...state,
-                favourite: {
-                    content: [...state.favourite.content, action.payload],
+                favs: {
+                    content: [...state.favs.content, action.payload],
                 },
             };
-        case "REMOVE_FROM_FAV":
+        case "REMOVE_FAV":
             return {
                 ...state,
-                favourite: {
+                favs: {
                     content: [
-                        ...state.favourite.content.filter((i) => i !== action.payload),
+                        ...state.favs.content.filter((i) => i !== action.payload),
                     ],
                 },
             };
