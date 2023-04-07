@@ -31,11 +31,7 @@ function CityPage() {
     getCityDetails();
   }, []);
 
-  return (
-    <Container>
-      <ErrorBoundary>{city !== null && <CityCard city={city} />}</ErrorBoundary>
-    </Container>
-  );
+  return <Container>{city !== null && <CityCard city={city} />}</Container>;
 }
 
 export default CityPage;
