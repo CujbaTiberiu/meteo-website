@@ -71,9 +71,9 @@ const InputSearch = function () {
       </Form>
       {suggestions.length > 0 && (
         <Dropdown.Menu show>
-          {suggestions.map((suggestion) => (
+          {suggestions.map((suggestion, i) => (
             <Dropdown.Item
-              key={suggestion.id}
+              key={i}
               onClick={() => onSelectCity(suggestion.name, suggestion.country)}
             >
               {suggestion.name}, {suggestion.country}
