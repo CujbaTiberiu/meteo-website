@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  height: 100vh;
+  background-image: url(https://th.bing.com/th/id/R.a21c8f3fcae1119db5ff73f20dd5eced?rik=fZd0vdp6QC75dw&pid=ImgRaw&r=0);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-logo {
@@ -32,6 +36,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

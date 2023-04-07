@@ -90,7 +90,7 @@ const InputSearch = function () {
           {weatherData.length > 0 && (
             <ListGroup>
               {weatherData.map((data, i) => (
-                <ListGroup.Item key={data.id + i}>
+                <ListGroup.Item className="my-5" key={data.id + i}>
                   <h2>{data.name}</h2>
                   <h3 className="fs-1">
                     {data.main && data.main.temp
@@ -108,7 +108,7 @@ const InputSearch = function () {
                   </p>
                   <Link to={"/city/" + data.name}>
                     {console.log(data.name)}
-                    <Button className="bg-white text-primary px-4 border border-2 border-primary">
+                    <Button className="bg-white text-info px-4 border border-2 border-primary">
                       Show Details
                     </Button>
                   </Link>
