@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { ListGroup, Dropdown } from "react-bootstrap";
+import { ListGroup, Dropdown, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import HomeCard from "./HomeCard";
 
@@ -55,63 +55,73 @@ const InputSearch = function () {
   };
 
   return (
-    <>
-      <Form className="d-flex" onSubmit={handleSearch}>
-        <Form.Control
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <Button variant="outline-success" type="submit">
-          Search
-        </Button>
-      </Form>
-      {suggestions.length > 0 && (
-        <Dropdown.Menu show>
-          {suggestions.map((suggestion, i) => (
-            <Dropdown.Item
-              key={i}
-              onClick={() => onSelectCity(suggestion.name, suggestion.country)}
-            >
-              {suggestion.name}, {suggestion.country}
-            </Dropdown.Item>
-          ))}
-        </Dropdown.Menu>
-      )}
-      {error && <p>{error}</p>}
-      {weatherData.length > 0 && (
-        <ListGroup>
-          {weatherData.map((data, i) => (
-            <ListGroup.Item key={data.id + i}>
-              <h2>{data.name}</h2>
-              <h3 className="fs-1">
-                {data.main && data.main.temp
-                  ? Math.round(convertKelvinToCelsius(data.main.temp)) + "°C"
-                  : "N/A"}
-              </h3>
-              <p>
-                Description:{" "}
-                {data.weather && data.weather[0] && data.weather[0].description
-                  ? data.weather[0].description
-                  : "N/A"}
-              </p>
-              <Link to={"/city/" + data.name}>
-                {console.log(data.name)}
-                <Button className="bg-white text-primary px-4 border border-2 border-primary">
-                  Show Details
-                </Button>
-              </Link>
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
-      )}
-      <div>
-        <HomeCard city={city} />
-      </div>
-    </>
+    <Container>
+      <Row>
+        <Col xs={12} md={8} className="my-5 mx-auto">
+          <h1 className="my-3">Search a city</h1>
+          <Form className="d-flex" onSubmit={handleSearch}>
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+            <Button variant="outline-success" type="submit">
+              Search
+            </Button>
+          </Form>
+          {suggestions.length > 0 && (
+            <Dropdown.Menu show>
+              {suggestions.map((suggestion, i) => (
+                <Dropdown.Item
+                  key={i}
+                  onClick={() =>
+                    onSelectCity(suggestion.name, suggestion.country)
+                  }
+                >
+                  {suggestion.name}, {suggestion.country}
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          )}
+          {error && <p>{error}</p>}
+          {weatherData.length > 0 && (
+            <ListGroup>
+              {weatherData.map((data, i) => (
+                <ListGroup.Item key={data.id + i}>
+                  <h2>{data.name}</h2>
+                  <h3 className="fs-1">
+                    {data.main && data.main.temp
+                      ? Math.round(convertKelvinToCelsius(data.main.temp)) +
+                        "°C"
+                      : "N/A"}
+                  </h3>
+                  <p>
+                    Description:{" "}
+                    {data.weather &&
+                    data.weather[0] &&
+                    data.weather[0].description
+                      ? data.weather[0].description
+                      : "N/A"}
+                  </p>
+                  <Link to={"/city/" + data.name}>
+                    {console.log(data.name)}
+                    <Button className="bg-white text-primary px-4 border border-2 border-primary">
+                      Show Details
+                    </Button>
+                  </Link>
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          )}
+          <div>
+            <HomeCard city={city} />
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

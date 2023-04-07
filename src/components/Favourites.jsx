@@ -18,21 +18,16 @@ const Favourites = () => {
   return (
     <Container>
       <Row>
-        <Col xs={12} md={8} className="mx-auto text-center">
-          <h2 className="my-4">Your saved locations</h2>
+        <Col xs={12} md={8} className="mx-auto text-center my-5">
           {favContainer.length > 0 ? (
             <ListGroup variant="flush">
+              <h2 className="my-4">Your saved locations</h2>
               {favContainer.map((fav, i) => (
                 <ListGroup.Item
                   className="d-flex justify-content-between"
                   key={i}
                 >
-                  <p>
-                    <span className="fw-bold">Name</span> -{" "}
-                    <a href={fav.url} alt="company website">
-                      {fav.name}
-                    </a>{" "}
-                  </p>
+                  <span className="fw-bold">Name {fav.name}</span> -{" "}
                   <Button variant="outline-danger" onClick={() => removeFav(i)}>
                     Remove
                   </Button>{" "}

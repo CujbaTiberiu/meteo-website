@@ -7,9 +7,6 @@ const initialState = {
 const mainReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_FAV":
-            if (state.favs.content.includes(action.payload)) {
-                return state;
-            }
             return {
                 ...state,
                 favs: {

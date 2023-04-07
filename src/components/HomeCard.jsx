@@ -11,7 +11,7 @@ function HomeCard({ city }) {
   const getCityForecast = async () => {
     try {
       let response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city.name}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city[0].name}&appid=${API_KEY}`
       );
       if (response.ok) {
         let details = await response.json();

@@ -34,8 +34,8 @@ const CityCard = ({ city }) => {
               <Card.Text>
                 <div>Conditions {city.weather[0].main}</div>{" "}
                 <div>
-                  Temp max {convertKelvinToCelsius(city.main.temp_max)} Temp min{" "}
-                  {convertKelvinToCelsius(city.main.temp_min)}
+                  Temp max {convertKelvinToCelsius(city.main.temp_max)}°C Temp |
+                  min {convertKelvinToCelsius(city.main.temp_min)}°C
                 </div>
               </Card.Text>
               <Button
