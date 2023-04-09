@@ -2,8 +2,8 @@ import { Container, Button } from "react-bootstrap";
 import CityCard from "./CityCard";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import "../css/citypage.css";
 
 function CityPage() {
   const API_KEY = "1d0308598175f64523b3e3e941bf225f";
@@ -33,7 +33,7 @@ function CityPage() {
   }, []);
 
   return (
-    <Container>
+    <Container className="page__cont">
       {city !== null && <CityCard city={city} />}
       <Link to="/" className="nav-link">
         <Button className="bg-white text-primary px-4 border border-2 border-primary my-5">

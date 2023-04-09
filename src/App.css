@@ -1,10 +1,16 @@
 .App {
   text-align: center;
+  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
-  background-image: url(https://th.bing.com/th/id/R.a21c8f3fcae1119db5ff73f20dd5eced?rik=fZd0vdp6QC75dw&pid=ImgRaw&r=0);
+  max-height: 100vh;
+  background: rgb(86, 170, 233);
+  background: linear-gradient(0deg, rgba(86, 170, 233, 1) 57%, rgba(245, 253, 45, 0.8743872549019608) 99%);
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
+
 
 .App-logo {
   height: 40vmin;

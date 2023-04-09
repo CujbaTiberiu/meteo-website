@@ -3,9 +3,36 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const CityCard = ({ city }) => {
+  const [town, setTown] = useState(null);
   const dispatch = useDispatch();
+  const API_KEY = "1d0308598175f64523b3e3e941bf225f";
+
+  const getCityForecast = async () => {
+    try {
+      let response = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${
+          city.coord.lat
+        }&lon=${city.coord.lon}&cnt=${8}&appid=${API_KEY}`
+      );
+      if (response.ok) {
+        let details = await response.json();
+        setTown(details);
+        console.log(details);
+      } else {
+        console.log("error happened with the request");
+      }
+    } catch (error) {
+      console.log("generic error happened", error);
+    }
+  };
+
+  useEffect(() => {
+    getCityForecast();
+  }, []);
 
   const addToFav = () => {
     dispatch({
@@ -49,6 +76,28 @@ const CityCard = ({ city }) => {
           </Card>
         </Col>
       </Row>
+      <h2>Forecast for next hours</h2>
+      {town !== null &&
+        town.list.map((day, i) => (
+          <Row key={i}>
+            <Col xs={12} md={8} className="mx-auto">
+              <Card className="mx-auto mt-3">
+                <Card.Body>
+                  <Card.Title className="fs-2">{day.dt_txt}</Card.Title>
+                  <Card.Text className="d-flex flex-column justify-content-between">
+                    <div>Conditions {day.weather[0].description}</div>
+                    <div>
+                      Temp max {convertKelvinToCelsius(day.main.temp_max)}°C{" "}
+                    </div>
+                    <div>
+                      Temp min {convertKelvinToCelsius(day.main.temp_min)}°C
+                    </div>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        ))}
     </Container>
   );
 };

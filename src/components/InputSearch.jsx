@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { ListGroup, Dropdown, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import HomeCard from "./HomeCard";
 
 const API_KEY = "1d0308598175f64523b3e3e941bf225f";
 
@@ -116,9 +115,6 @@ const InputSearch = function () {
               ))}
             </ListGroup>
           )}
-          <div>
-            <HomeCard city={city} />
-          </div>
         </Col>
       </Row>
     </Container>
