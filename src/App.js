@@ -9,8 +9,8 @@ import Favourites from './components/Favourites';
 function App() {
   return (
     <div className="App">
-      <MyNav />
       <BrowserRouter>
+        <MyNav />
         <Routes>
           <Route path="/" element={<MyHome />}></Route>
           <Route path='/city/:name' element={<CityPage />} />
