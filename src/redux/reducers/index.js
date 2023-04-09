@@ -18,7 +18,7 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                 favs: {
                     content: [
-                        ...state.favs.content.filter((i) => i !== action.payload),
+                        ...state.favs.content.filter((city, i) => i !== action.payload),
                     ],
                 },
             };

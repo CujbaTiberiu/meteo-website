@@ -34,6 +34,11 @@ function CityPage() {
 
   return (
     <Container className="page__cont">
+      <Link to="/favourites" className="nav-link">
+        <Button className="bg-white text-primary px-4 border border-2 border-primary my-3">
+          See Favourites
+        </Button>
+      </Link>
       {city !== null && <CityCard city={city} />}
       <Link to="/" className="nav-link">
         <Button className="bg-white text-primary px-4 border border-2 border-primary my-5">

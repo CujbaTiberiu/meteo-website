@@ -51,7 +51,7 @@ const CityCard = ({ city }) => {
   }
 
   return (
-    <Container className="my-5">
+    <Container className="my-2">
       <Row>
         <h2>Detail Forecast</h2>
         <Col xs={12} md={8} className="mx-auto">
@@ -76,7 +76,7 @@ const CityCard = ({ city }) => {
           </Card>
         </Col>
       </Row>
-      <h2>Forecast for next hours</h2>
+      <h2 className="my-4">Forecast for next hours</h2>
       {town !== null &&
         town.list.map((day, i) => (
           <Row key={i}>

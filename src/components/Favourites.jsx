@@ -27,7 +27,7 @@ const Favourites = () => {
                   className="d-flex justify-content-between"
                   key={i}
                 >
-                  <span className="fw-bold">Name {fav.name}</span> -{" "}
+                  <span className="fw-bold">Name - {fav}</span>{" "}
                   <Button variant="outline-danger" onClick={() => removeFav(i)}>
                     Remove
                   </Button>{" "}
@@ -39,7 +39,7 @@ const Favourites = () => {
           )}
 
           <Link to="/">
-            <Badge className="fs-4" bg="secondary">
+            <Badge className="fs-4 my-3" bg="secondary">
               Go Back
             </Badge>
           </Link>
