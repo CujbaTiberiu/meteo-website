@@ -56,14 +56,29 @@ const CityCard = ({ city }) => {
         <h2>Detail Forecast</h2>
         <Col xs={12} md={8} className="mx-auto">
           <Card className="mx-auto mt-3">
-            <Card.Body>
-              <Card.Title className="fs-2">{city.name}</Card.Title>
+            <Card.Body className="bg-dark text-light">
+              <Card.Title className="fs-2">
+                {city.name},{city.sys.country}
+              </Card.Title>
               <Card.Text>
-                <div>Conditions {city.weather[0].main}</div>{" "}
+                <div>
+                  Conditions {city.weather[0].main}
+                  <img
+                    src={`http://openweathermap.org/img/w/${city.weather[0].icon}.png`}
+                    alt="meteo icon"
+                  />
+                </div>{" "}
                 <div>
                   Temp max {convertKelvinToCelsius(city.main.temp_max)}°C Temp |
                   min {convertKelvinToCelsius(city.main.temp_min)}°C
                 </div>
+                <div>
+                  Wind speed {city.wind.speed} | Wind deg. {city.wind.deg}
+                </div>
+                <div>
+                  Feels Temp. {convertKelvinToCelsius(city.main.feels_like)}°C
+                </div>
+                <div>Humidity {city.main.humidity}%</div>
               </Card.Text>
               <Button
                 className=""
@@ -80,18 +95,29 @@ const CityCard = ({ city }) => {
       {town !== null &&
         town.list.map((day, i) => (
           <Row key={i}>
-            <Col xs={12} md={8} className="mx-auto">
+            <Col xs={10} md={6} className="mx-auto">
               <Card className="mx-auto mt-3">
-                <Card.Body>
+                <Card.Body className="bg-dark text-light">
                   <Card.Title className="fs-2">{day.dt_txt}</Card.Title>
                   <Card.Text className="d-flex flex-column justify-content-between">
-                    <div>Conditions {day.weather[0].description}</div>
+                    <div>
+                      Conditions {day.weather[0].description}{" "}
+                      <img
+                        src={`http://openweathermap.org/img/w/${day.weather[0].icon}.png`}
+                        alt="meteo icon"
+                      />
+                    </div>
                     <div>
                       Temp max {convertKelvinToCelsius(day.main.temp_max)}°C{" "}
                     </div>
                     <div>
                       Temp min {convertKelvinToCelsius(day.main.temp_min)}°C
                     </div>
+                    <div>
+                      Feels Temp. {convertKelvinToCelsius(day.main.feels_like)}
+                      °C
+                    </div>
+                    <div>Humidity {day.main.humidity}%</div>
                   </Card.Text>
                 </Card.Body>
               </Card>

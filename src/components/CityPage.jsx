@@ -14,7 +14,7 @@ function CityPage() {
   const getCityDetails = async () => {
     try {
       let response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${params.name}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?id=${params.id}&appid=${API_KEY}`
       );
       if (response.ok) {
         let details = await response.json();
@@ -33,7 +33,7 @@ function CityPage() {
   }, []);
 
   return (
-    <Container className="page__cont">
+    <Container className="bg-light">
       <Link to="/favourites" className="nav-link">
         <Button className="bg-white text-primary px-4 border border-2 border-primary my-3">
           See Favourites

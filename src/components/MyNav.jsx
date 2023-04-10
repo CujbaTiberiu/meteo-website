@@ -5,10 +5,15 @@ import { Link } from "react-router-dom";
 
 function MyNav() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container fluid>
         <Navbar.Brand>
-          <Link className="text-decoration-none text-black" to="/">
+          <Link className="text-decoration-none text-light mx-3" to="/">
+            {/* <img
+              className="img__logo"
+              src={process.env.PUBLIC_URL + "/public/EpiMeteo (1).png"}
+              alt="epimeteo logo"
+            />{" "} */}
             EpiMeteo
           </Link>
         </Navbar.Brand>
@@ -20,13 +25,16 @@ function MyNav() {
             navbarScroll
           >
             <Nav.Item>
-              <Link className="text-decoration-none text-black mx-2" to="/">
+              <Link
+                className="text-decoration-none text-light mx-3 mx-2"
+                to="/"
+              >
                 Home
               </Link>
             </Nav.Item>
             <Nav.Item>
               <Link
-                className="text-decoration-none text-black"
+                className="text-decoration-none text-light mx-3"
                 to="/favourites"
               >
                 Favourites

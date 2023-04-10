@@ -8,12 +8,12 @@ import Favourites from './components/Favourites';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-light">
       <BrowserRouter>
         <MyNav />
         <Routes>
           <Route path="/" element={<MyHome />}></Route>
-          <Route path='/city/:name' element={<CityPage />} />
+          <Route path='/city/:id' element={<CityPage />} />
           <Route path='/favourites' element={<Favourites />} />
         </Routes>
       </BrowserRouter>

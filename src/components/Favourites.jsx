@@ -27,7 +27,7 @@ const Favourites = () => {
                   className="d-flex justify-content-between"
                   key={i}
                 >
-                  <span className="fw-bold">Name - {fav}</span>{" "}
+                  <span className="fw-bold">City name - {fav}</span>{" "}
                   <Button variant="outline-danger" onClick={() => removeFav(i)}>
                     Remove
                   </Button>{" "}
