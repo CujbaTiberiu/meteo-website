@@ -30,7 +30,7 @@ const HomeCard = ({ city }) => {
 
   return (
     cardCity !== null && (
-      <Card className="mx-auto mt-3 bg-dark text-light">
+      <Card className="mx-auto mt-3 bg-dark text-light home__card">
         <Card.Body>
           <Card.Title className="fs-2">
             {cardCity.name},{cardCity.sys.country}

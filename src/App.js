@@ -8,7 +8,7 @@ import Favourites from './components/Favourites';
 
 function App() {
   return (
-    <div className="App bg-light">
+    <div className="App">
       <BrowserRouter>
         <MyNav />
         <Routes>

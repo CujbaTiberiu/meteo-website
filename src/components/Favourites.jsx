@@ -28,7 +28,10 @@ const Favourites = () => {
                   key={i}
                 >
                   <span className="fw-bold">City name - {fav}</span>{" "}
-                  <Button variant="outline-danger" onClick={() => removeFav(i)}>
+                  <Button
+                    variant="outline-danger remove__button"
+                    onClick={() => removeFav(i)}
+                  >
                     Remove
                   </Button>{" "}
                 </ListGroup.Item>

@@ -30,10 +30,11 @@ function CityPage() {
 
   useEffect(() => {
     getCityDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <Container className="bg-light">
+    <Container>
       <Link to="/favourites" className="nav-link">
         <Button className="bg-white text-primary px-4 border border-2 border-primary my-3">
           See Favourites

@@ -62,12 +62,16 @@ const InputSearch = function () {
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-2"
+              className="mx-1"
               aria-label="Search"
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
-            <Button variant="outline-success" type="submit">
+            <Button
+              variant="outline-success"
+              type="submit"
+              className="search__button"
+            >
               Search
             </Button>
           </Form>
@@ -118,7 +122,7 @@ const InputSearch = function () {
                   </p>
                   <Link to={"/city/" + data.id}>
                     {console.log(data.id)}
-                    <Button className="bg-dark text-info px-4 border border-2 border-primary">
+                    <Button className="bg-dark text-info px-4 border border-2 border-primary details__button">
                       Show Details
                     </Button>
                   </Link>

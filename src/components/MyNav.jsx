@@ -8,7 +8,7 @@ function MyNav() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container fluid>
         <Navbar.Brand>
-          <Link className="text-decoration-none text-light mx-3" to="/">
+          <Link className="text-decoration-none text-light app__logo" to="/">
             {/* <img
               className="img__logo"
               src={process.env.PUBLIC_URL + "/public/EpiMeteo (1).png"}
@@ -25,10 +25,7 @@ function MyNav() {
             navbarScroll
           >
             <Nav.Item>
-              <Link
-                className="text-decoration-none text-light mx-3 mx-2"
-                to="/"
-              >
+              <Link className="text-decoration-none text-light" to="/">
                 Home
               </Link>
             </Nav.Item>
