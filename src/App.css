@@ -89,7 +89,8 @@ body {
   padding-bottom: 200px;
 }
 
-.home__card {
+.home__card,
+.detail__card {
   animation: fade 3s linear both, slideIn 3s ease-in-out;
   animation-timeline: view();
   animation-range: entry 90% cover 25%;
@@ -165,4 +166,42 @@ body {
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
+}
+
+.back__button {
+  --color: hsl(208, 72%, 39%);
+  display: inline-block;
+  border: 3px solid var(--color);
+  position: relative;
+  isolation: isolate;
+}
+
+.back__button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  inset: 0;
+  scale: 0 1;
+  transition: scale 450ms;
+  transform-origin: right;
+}
+
+.back__button:hover::after,
+.back__button:focus::after {
+  transform-origin: left;
+  scale: 1 1;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5b5858;
+  padding: 1px;
 }

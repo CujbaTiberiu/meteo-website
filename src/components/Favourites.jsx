@@ -42,9 +42,9 @@ const Favourites = () => {
           )}
 
           <Link to="/">
-            <Badge className="fs-4 my-3" bg="secondary">
+            <button className="fs-4 my-3 px-3 rounded back__button">
               Go Back
-            </Badge>
+            </button>
           </Link>
         </Col>
       </Row>

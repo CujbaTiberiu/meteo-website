@@ -36,13 +36,13 @@ function CityPage() {
   return (
     <Container>
       <Link to="/favourites" className="nav-link">
-        <Button className="bg-white text-primary px-4 border border-2 border-primary my-3">
+        <Button className="bg-white text-black px-4 border border-2 border-primary my-3 back__button">
           See Favourites
         </Button>
       </Link>
       {city !== null && <CityCard city={city} />}
       <Link to="/" className="nav-link">
-        <Button className="bg-white text-primary px-4 border border-2 border-primary my-5">
+        <Button className="bg-white text-black px-4 border border-2 border-primary my-5 back__button">
           Go Back
         </Button>
       </Link>

@@ -55,7 +55,7 @@ const CityCard = ({ city }) => {
       <Row>
         <h2>Detail Forecast</h2>
         <Col xs={12} md={8} className="mx-auto">
-          <Card className="mx-auto mt-3">
+          <Card className="mx-auto mt-3 detail__card">
             <Card.Body className="bg-dark text-light">
               <Card.Title className="fs-2">
                 {city.name},{city.sys.country}
@@ -96,7 +96,7 @@ const CityCard = ({ city }) => {
         town.list.map((day, i) => (
           <Row key={i}>
             <Col xs={10} md={6} className="mx-auto">
-              <Card className="mx-auto mt-3">
+              <Card className="mx-auto mt-3 detail__card">
                 <Card.Body className="bg-dark text-light">
                   <Card.Title className="fs-2">{day.dt_txt}</Card.Title>
                   <Card.Text className="d-flex flex-column justify-content-between">
